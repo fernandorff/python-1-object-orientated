@@ -1,1 +1,1 @@
-# python-1-object-orientated
+# python-1-object-oriented
