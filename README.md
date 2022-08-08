@@ -1,1 +1,4 @@
-# python-1-object-oriented
+## Python Studies 1
+
+#### Learning points 
+- Object Oriented Programming
