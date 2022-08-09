@@ -12,3 +12,8 @@
 
 #### Learning points 
 - Working with strings
+
+## Python Studies 4
+
+#### Learning points 
+- Pyscript for front-end
