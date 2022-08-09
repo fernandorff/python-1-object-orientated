@@ -52,10 +52,20 @@ class Series(Video):
 class Playlist(list):
     def __init__(self, name, content):
         self.name = name
-        super().__init__(content)
+        self._content = content
+
+    def __getitem__(self, item):
+        return self._content[item]
+
+    @property
+    def listing(self):
+        return self._content
+
+    def __len__(self):
+        return len(self._content)
 
 
-avenvers_3_movie = Movie('avengers - Infinity Wars', 2018, 160)
+avengers_3_movie = Movie('avengers - Infinity Wars', 2018, 160)
 atlanta_series = Series('atlanta', 2018, 2)
 the_godfather_1_movie = Movie('The Godfather', 1972, 155)
 arcane_series = Series('Arcane', 2021, 1)
@@ -64,11 +74,15 @@ atlanta_series.like()
 arcane_series.like()
 arcane_series.like()
 
-movies_and_series = [avenvers_3_movie, atlanta_series, the_godfather_1_movie, arcane_series]
+playlist1 = [avengers_3_movie, atlanta_series, the_godfather_1_movie, arcane_series]
 
-weekend_playlist = Playlist("Weekend watchies", movies_and_series)
+weekend_playlist = Playlist("Weekend", playlist1)
 
 print(f'Playlist size: {len(weekend_playlist)} items')
 
-for index in weekend_playlist:
-    print(index)
+for i in weekend_playlist:
+    print(i)
+
+print(f'Is it on? {arcane_series in weekend_playlist}')
+
+print(len(weekend_playlist))
