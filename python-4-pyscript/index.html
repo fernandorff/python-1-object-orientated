@@ -1,23 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-
-    <title>REPL</title>
-
-    <link rel="icon" type="image/png" href="favicon.png" />
-    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
     <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
-  </head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
 
-  <body>
-    Hello world! <br>
-    This is the current date and time, as computed by Python:
-    <py-script>
-from datetime import datetime
-now = datetime.now()
-now.strftime("%m/%d/%Y, %H:%M:%S")
-    </py-script>
-  </body>
+    <body>
+      <py-script src="main.py"></py-script>
+
+      <main class="container">
+        <div
+          style="display: none"
+          class="alert alert-danger"
+          id="danger_message"
+          role="alert"
+        >
+          <br />
+          This task already exists!
+        </div>
+        <h3>To do list</h3>
+        <input
+          type="text"
+          id="input_task"
+          placeholder="Write a task"
+          class="form-control"
+        />
+        <br />
+        <button id="btn_task" class="btn btn-success" pys-onClick="create_task">
+          Send
+        </button>
+        <hr />
+
+        <div class="row">
+          <div class="col-md">
+            <h3 style="color: orange">Ongoing tasks</h3>
+            <div id="created_tasks"></div>
+          </div>
+          <div class="col-md">
+            <h3 style="color: green">Finished tasks</h3>
+          </div>
+        </div>
+      </main>
+    </body>
+  </head>
 </html>
